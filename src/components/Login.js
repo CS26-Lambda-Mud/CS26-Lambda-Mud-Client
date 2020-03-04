@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "./login-style.css"
 // login component
-const Login = () => {
+const Login = (props) => {
     const [form,setForm] = useState({username:"",password:""})
     console.log(form)
     const handleChanges = e => {
@@ -13,12 +13,12 @@ const Login = () => {
     const handleSubmit = e => {
         e.preventDefault();
         axios
-    .post('https://lambda-mud-test.herokuapp.com/api/login/',form)
+    .post('https://cs26-django-backend.herokuapp.com/api/login/',form)
     .then(res =>{
         console.log("login post res",res)
         localStorage.setItem("token",res.data.key )
     })
-        
+    props.history.push('/game')
         
     }
     

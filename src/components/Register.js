@@ -9,11 +9,11 @@ const Register = (props) => {
     const handleChanges = e => {
         setForm({...form, [e.target.name] : e.target.value})
     };
-
+// https://cs26-django-backend.herokuapp.com/api/registration/
     const handleSubmit = e => {
         e.preventDefault();
         axios
-        .post('https://cs26-django-backend.herokuapp.com/api/registration/',form)
+        .post('https://lambda-mud-test.herokuapp.com/api/registration/',form)
         .then(res =>{
             console.log("reg post res",res)
             localStorage.setItem("token",res.data.key )

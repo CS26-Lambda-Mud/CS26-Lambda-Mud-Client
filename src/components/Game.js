@@ -5,10 +5,9 @@ import "./Game-Style.css"
 // Game component
 const Game = () => {
     const [data,setData] = useState([])
-     
     useEffect(() => {
         axios
-    .get('https://cs26-django-backend.herokuapp.com/api/adv/init/',{
+    .get('https://lambda-mud-test.herokuapp.com/api/adv/init/',{
         headers: { Authorization: `Token ${localStorage.getItem("token")}` },
     "Content-Type": "application/json"})
     .then(res =>{
@@ -20,7 +19,7 @@ const Game = () => {
     
     function Onpress(direction){
         axios
-    .post('https://cs26-django-backend.herokuapp.com/api/adv/move/',direction,{
+    .post('https://lambda-mud-test.herokuapp.com/api/adv/move/',direction,{
         headers: { Authorization: `Token ${localStorage.getItem("token")}` },
     "Content-Type": "application/json"})
     .then(res =>{

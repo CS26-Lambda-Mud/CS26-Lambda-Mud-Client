@@ -9,11 +9,11 @@ const Login = (props) => {
     const handleChanges = e => {
         setForm({...form, [e.target.name] : e.target.value})
     };
-
+    // https://cs26-django-backend.herokuapp.com/api/login/
     const handleSubmit = e => {
         e.preventDefault();
         axios
-    .post('https://cs26-django-backend.herokuapp.com/api/login/',form)
+    .post('https://lambda-mud-test.herokuapp.com/api/login/',form)
     .then(res =>{
         console.log("login post res",res)
         localStorage.setItem("token",res.data.key )
